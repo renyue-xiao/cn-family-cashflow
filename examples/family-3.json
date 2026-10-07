@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "currency": "CNY",
+  "name": "陈家 · 按银行还款表规划",
+  "startMonth": "2026-10",
+  "dataMode": "synthetic",
+  "assets": [
+    {
+      "id": "cash",
+      "name": "可用存款",
+      "amountCents": 6000000,
+      "owner": "household",
+      "kind": "cash",
+      "source": "合成家庭案例，非真实客户资料"
+    }
+  ],
+  "liabilities": [
+    {
+      "id": "loan",
+      "name": "家庭贷款",
+      "amountCents": 12000000,
+      "owner": "household",
+      "source": "合成家庭案例，非真实客户资料"
+    }
+  ],
+  "recurring": [
+    {
+      "id": "salary",
+      "name": "税后工资",
+      "kind": "salary",
+      "amountCents": 1500000,
+      "day": 1,
+      "owner": "household",
+      "source": "合成家庭案例，非真实客户资料"
+    },
+    {
+      "id": "spend",
+      "name": "生活消费",
+      "kind": "consumption",
+      "amountCents": 800000,
+      "day": 25,
+      "owner": "household",
+      "source": "合成家庭案例，非真实客户资料"
+    }
+  ],
+  "events": [],
+  "goals": [],
+  "repayments": [
+    {
+      "id": "repay-1",
+      "date": "2026-10-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 30000,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-2",
+      "date": "2026-11-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 28750,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-3",
+      "date": "2026-12-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 27500,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-4",
+      "date": "2027-01-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 26250,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-5",
+      "date": "2027-02-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 25000,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-6",
+      "date": "2027-03-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 23750,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-7",
+      "date": "2027-04-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 22500,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-8",
+      "date": "2027-05-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 21250,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-9",
+      "date": "2027-06-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 20000,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-10",
+      "date": "2027-07-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 18750,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-11",
+      "date": "2027-08-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 17500,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-12",
+      "date": "2027-09-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 16250,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-13",
+      "date": "2027-10-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 15000,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-14",
+      "date": "2027-11-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 13750,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-15",
+      "date": "2027-12-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 12500,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-16",
+      "date": "2028-01-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 11250,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-17",
+      "date": "2028-02-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 10000,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-18",
+      "date": "2028-03-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 8750,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-19",
+      "date": "2028-04-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 7500,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-20",
+      "date": "2028-05-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 6250,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-21",
+      "date": "2028-06-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 5000,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-22",
+      "date": "2028-07-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 3750,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-23",
+      "date": "2028-08-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 2500,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    },
+    {
+      "id": "repay-24",
+      "date": "2028-09-28",
+      "liabilityId": "loan",
+      "principalCents": 500000,
+      "interestCents": 1250,
+      "source": "合成还款表：本金12万元，24期等额本金，年利率3%，无手续费"
+    }
+  ]
+}
