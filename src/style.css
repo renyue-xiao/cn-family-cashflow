@@ -318,26 +318,7 @@
 .family-app .caption {
   margin-top: 14px;
 }
-.family-app .goal-strip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 25px 28px;
-  background: #f1ece1;
-  border-radius: 8px;
-  margin-bottom: 40px;
-}
-.family-app .goal-strip strong {
-  font-size: 26px;
-  display: block;
-  font-variant-numeric: tabular-nums;
-}
-.family-app .goal-strip span,
-.family-app .goal-strip p {
-  font-size: 12px;
-  color: var(--muted);
-}
+
 .family-app .table-scroll {
   max-width: 100%;
   overflow-x: auto;
@@ -578,9 +559,7 @@ body {
     margin-top: 12px;
     border-top: 1px solid var(--line);
   }
-  .family-app .goal-strip {
-    flex-wrap: wrap;
-  }
+
   .family-app .chart-panel {
     padding: 18px;
   }
@@ -636,9 +615,7 @@ body {
   .family-app .metrics small {
     font-size: 10px;
   }
-  .family-app .goal-strip {
-    padding: 20px;
-  }
+
   .family-app .scenario {
     padding: 16px;
   }
@@ -669,4 +646,259 @@ body {
   margin: 0;
   min-width: 0;
   width: 100%;
+}
+
+.family-app .local-data-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin: -8px 0 20px;
+  padding: 12px 15px;
+  background: #eef1eb;
+  border-left: 3px solid var(--gold);
+}
+.family-app .chart-point {
+  cursor: pointer;
+}
+.family-app .chart-point:focus-visible {
+  outline: none;
+}
+.family-app .chart-point:focus-visible circle {
+  stroke: var(--ink);
+  stroke-width: 4px;
+}
+.family-app .month-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin: 14px 0 22px;
+}
+.family-app .month-controls label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.family-app .month-controls button {
+  min-width: 44px;
+  min-height: 44px;
+}
+.family-app .selected-month {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  border-block: 1px solid var(--line);
+  padding: 20px 0;
+  margin-bottom: 22px;
+}
+.family-app .selected-month span,
+.family-app .selected-month small {
+  display: block;
+  font-size: 12px;
+}
+.family-app .selected-month strong {
+  display: block;
+  font-size: 27px;
+  letter-spacing: -0.6px;
+  font-variant-numeric: tabular-nums;
+}
+.family-app .flow-breakdown {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.family-app .flow-item > div:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.family-app .flow-item span {
+  font-variant-numeric: tabular-nums;
+}
+.family-app .flow-track {
+  height: 8px;
+  border-radius: 4px;
+  background: #edf0eb;
+  overflow: hidden;
+  margin: 8px 0 5px;
+}
+.family-app .flow-track span {
+  display: block;
+  height: 100%;
+}
+.family-app .income {
+  background: #193d49;
+}
+.family-app .borrowing {
+  background: repeating-linear-gradient(45deg, #788b90, #788b90 4px, #a4b4b8 4px, #a4b4b8 7px);
+}
+.family-app .outflow {
+  background: #a3b4b8;
+}
+.family-app .goal-flow {
+  background: #b48343;
+}
+.family-app .goal-panel {
+  margin: 28px 0 38px;
+}
+.family-app .goal-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+}
+.family-app .goal-card {
+  display: grid;
+  gap: 6px;
+  text-align: left;
+  padding: 17px 20px;
+  border-left: 3px solid var(--line);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.family-app .goal-card strong {
+  font-size: 16px;
+}
+.family-app .goal-card.chosen {
+  background: #f3eee2;
+  border-color: var(--gold);
+}
+.family-app .goal-detail {
+  display: flex;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.family-app .goal-detail h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.family-app .goal-detail p {
+  font-size: 13px;
+}
+.family-app .goal-detail > div:last-child {
+  min-width: 200px;
+}
+.family-app .goal-detail > div:last-child strong,
+.family-app .goal-detail > div:last-child small {
+  display: block;
+}
+.family-app .goal-detail > div:last-child span {
+  font-size: 12px;
+}
+.family-app .goal-detail > div:last-child strong {
+  font-size: 20px;
+}
+.family-app .goal-detail small {
+  overflow-wrap: anywhere;
+}
+.family-app .asset-panel {
+  margin-bottom: 40px;
+  padding: 24px 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.family-app .asset-stack {
+  height: 18px;
+  display: flex;
+  background: #e6e9e3;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 18px;
+}
+.family-app .asset-stack span:first-child {
+  background: #193d49;
+}
+.family-app .asset-stack span:last-child {
+  background: #b8c2be;
+}
+.family-app .asset-categories {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  font-size: 12px;
+}
+.family-app .asset-categories strong,
+.family-app .asset-categories small {
+  display: block;
+}
+.family-app .asset-categories strong {
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+  margin-top: 7px;
+}
+.family-app .asset-key {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  margin-right: 6px;
+  border-radius: 50%;
+}
+.family-app .cash-key {
+  background: #193d49;
+}
+.family-app .valuation-key {
+  background: #b8c2be;
+}
+.family-app .debt-key {
+  border: 2px solid #788b90;
+}
+.family-app .enterprise-separate {
+  border-top: 1px dashed #bdc9c6;
+  padding-top: 16px;
+  margin-top: 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+.family-app .enterprise-separate span {
+  color: var(--muted);
+}
+@media (max-width: 800px) {
+  .family-app .goal-detail {
+    flex-direction: column;
+  }
+  .family-app .flow-breakdown {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 480px) {
+  .family-app .chart-panel svg text {
+    font-size: 28px;
+  }
+  .family-app .chart-panel .intermediate-axis-label {
+    display: none;
+  }
+  .family-app .selected-month {
+    gap: 15px;
+    grid-template-columns: 1fr;
+  }
+  .family-app .selected-month strong {
+    font-size: 24px;
+  }
+  .family-app .flow-breakdown {
+    gap: 18px 14px;
+  }
+  .family-app .asset-panel {
+    padding: 18px;
+  }
+  .family-app .asset-categories {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .family-app .goal-list {
+    grid-template-columns: 1fr;
+  }
+  .family-app .month-controls {
+    gap: 7px;
+  }
+  .family-app .month-controls label {
+    gap: 7px;
+  }
+  .family-app .local-data-note {
+    margin-top: 0;
+  }
 }
