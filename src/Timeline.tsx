@@ -168,7 +168,13 @@ export function Timeline({
             </g>
           ))}
           {[0, 5, 11, 17, 23].map((i) => (
-            <text key={i} x={x(i)} y="204" textAnchor="middle">
+            <text
+              key={i}
+              className={i === 5 || i === 17 ? 'intermediate-axis-label' : undefined}
+              x={x(i)}
+              y="204"
+              textAnchor={i === 0 ? 'start' : i === 23 ? 'end' : 'middle'}
+            >
               {result.months[i].month}
             </text>
           ))}

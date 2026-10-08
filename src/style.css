@@ -866,6 +866,12 @@ body {
   }
 }
 @media (max-width: 480px) {
+  .family-app .chart-panel svg text {
+    font-size: 28px;
+  }
+  .family-app .chart-panel .intermediate-axis-label {
+    display: none;
+  }
   .family-app .selected-month {
     gap: 15px;
     grid-template-columns: 1fr;
