@@ -8,3 +8,5 @@ addon/LICENSE
 addon/licenses/
 package-lock.json
 *.zip
+addon/CONTRIBUTING.md
+addon/qc-report.md
