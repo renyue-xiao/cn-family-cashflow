@@ -1,5 +1,5 @@
 {
- "id":"cn-family-cashflow","name":"家有余量","version":"0.1.0","description":"家庭现金流、贷款本金利息与目标付款日规划","author":"coffeeyyds","main":"dist/addon.js","sdkVersion":"3.9.0","minWealthfolioVersion":"3.9.0","enabled":true,
+ "id":"cn-family-cashflow","name":"家有余量","version":"0.1.0","description":"家庭现金流、贷款本金利息与目标付款日规划","author":"renyue-xiao","main":"dist/addon.js","sdkVersion":"3.9.0","minWealthfolioVersion":"3.9.0","enabled":true,
  "contributes":{"routes":[{"id":"cn-family-cashflow"}],"links":{"sidebar":[{"id":"cn-family-cashflow","route":"cn-family-cashflow","label":"家有余量","icon":"squares-four","order":100}]}},
  "hostDependencies":{"react":"^19.2.0"},
  "permissions":[

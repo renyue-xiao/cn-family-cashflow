@@ -1,5 +1,6 @@
 # 家有余量 · 家庭现金流与目标规划
 
+项目主页：[renyue-xiao/cn-family-cashflow](https://github.com/renyue-xiao/cn-family-cashflow)。
 把家庭资产负债、月度收支和目标付款日放在同一份24个月现金账。第一版提供独立 React 演示和 Wealthfolio Addon，共用计算核心与界面。所有内置家庭均为合成案例。
 
 ## 运行与构建
