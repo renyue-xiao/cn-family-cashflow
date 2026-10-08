@@ -1,0 +1,672 @@
+.family-app {
+  --ink: #193d49;
+  --muted: #61747a;
+  --gold: #aa7b3f;
+  --line: #dce2dc;
+  --paper: #fbfaf7;
+  --red: #a33d31;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'PingFang SC',
+    'Microsoft YaHei',
+    sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+.family-app * {
+  box-sizing: border-box;
+}
+.family-app button,
+.family-app input,
+.family-app select,
+.family-app textarea {
+  font: inherit;
+}
+.family-app button,
+.family-app input,
+.family-app select,
+.family-app textarea {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 9px 12px;
+  background: white;
+  color: var(--ink);
+  max-width: 100%;
+}
+.family-app button {
+  cursor: pointer;
+  min-height: 40px;
+  font-weight: 550;
+  transition: background 0.15s;
+}
+.family-app button:hover {
+  background: #edf1ed;
+}
+.family-app button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+.family-app :focus-visible {
+  outline: 3px solid #c59950;
+  outline-offset: 3px;
+}
+.family-app .primary {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: white;
+}
+.family-app .primary:hover {
+  background: #285666;
+}
+.family-app h1,
+.family-app h2,
+.family-app h3,
+.family-app p {
+  margin: 0;
+}
+.family-app h1 {
+  font-size: clamp(28px, 3.3vw, 43px);
+  font-weight: 620;
+  letter-spacing: -1.3px;
+  line-height: 1.35;
+}
+.family-app h2 {
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.family-app h3 {
+  font-size: 19px;
+  font-weight: 600;
+}
+.family-app small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.family-app .topbar {
+  height: 92px;
+  border-bottom: 1px solid var(--line);
+  padding: 18px max(5vw, 20px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.family-app .brand {
+  color: var(--ink);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-weight: 650;
+}
+.family-app .brand small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.family-app .brand-mark {
+  background: var(--ink);
+  color: #efe5cf;
+  height: 43px;
+  width: 43px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+.family-app .mode {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: right;
+}
+.family-app main {
+  max-width: 1280px;
+  margin: auto;
+  padding: 48px 4vw 24px;
+}
+.family-app .heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+.family-app .eyebrow {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  font-weight: 650;
+  margin-bottom: 10px;
+}
+.family-app .intro {
+  color: var(--muted);
+  margin-top: 13px;
+}
+.family-app .sample-picker {
+  max-width: 310px;
+  display: grid;
+  gap: 7px;
+}
+.family-app label {
+  font-size: 12px;
+}
+.family-app .planbar {
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  border-block: 1px solid var(--line);
+  align-items: center;
+}
+.family-app .planbar strong {
+  font-size: 16px;
+}
+.family-app .planbar small {
+  display: block;
+  margin-top: 4px;
+}
+.family-app .pill {
+  display: inline-block;
+  font-size: 10px;
+  color: #78632e;
+  background: #f0ebdb;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 10px;
+}
+.family-app .actions,
+.family-app .row-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.family-app .tabs {
+  display: flex;
+  gap: 30px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 32px;
+  overflow: auto;
+}
+.family-app .tabs button {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 20px 0 15px;
+  white-space: nowrap;
+  font-size: 14px;
+  color: var(--muted);
+}
+.family-app .tabs button[aria-current] {
+  border-bottom: 3px solid var(--ink);
+  color: var(--ink);
+}
+.family-app .scenario {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: #eef1eb;
+  padding: 19px 24px;
+  border-radius: 8px;
+}
+.family-app .scenario p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.family-app .scenario-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.family-app .scenario-buttons .selected {
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
+}
+.family-app .scenario-buttons input {
+  width: 65px;
+}
+.family-app .metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  margin: 28px 0 34px;
+}
+.family-app .metrics article {
+  padding: 4px 26px;
+  border-right: 1px solid var(--line);
+}
+.family-app .metrics article:first-child {
+  padding-left: 0;
+}
+.family-app .metrics article:last-child {
+  border: 0;
+  padding-right: 0;
+}
+.family-app .metrics span,
+.family-app .metrics small {
+  display: block;
+  font-size: 12px;
+}
+.family-app .metrics strong {
+  display: block;
+  font-size: clamp(22px, 2.4vw, 31px);
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
+  margin: 7px 0;
+}
+.family-app .negative strong,
+.family-app .red {
+  color: var(--red);
+}
+.family-app .chart-panel {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 25px 28px;
+  margin-bottom: 22px;
+}
+.family-app .section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin: 12px 0 22px;
+}
+.family-app .legend {
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+.family-app .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+.family-app .baseline {
+  background: #a3b4b8;
+}
+.family-app .stress {
+  background: #b48343;
+}
+.family-app svg {
+  width: 100%;
+  display: block;
+  overflow: visible;
+}
+.family-app svg text {
+  fill: var(--muted);
+  font-size: 10px;
+}
+.family-app .caption,
+.family-app .hint {
+  font-size: 12px;
+  color: var(--muted);
+}
+.family-app .caption {
+  margin-top: 14px;
+}
+.family-app .goal-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 25px 28px;
+  background: #f1ece1;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+.family-app .goal-strip strong {
+  font-size: 26px;
+  display: block;
+  font-variant-numeric: tabular-nums;
+}
+.family-app .goal-strip span,
+.family-app .goal-strip p {
+  font-size: 12px;
+  color: var(--muted);
+}
+.family-app .table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: white;
+}
+.family-app table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.family-app th,
+.family-app td {
+  text-align: right;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e8ece7;
+}
+.family-app th:first-child,
+.family-app td:first-child {
+  text-align: left;
+}
+.family-app thead th {
+  background: #f2f4ef;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 550;
+}
+.family-app tbody tr:last-child td,
+.family-app tbody tr:last-child th {
+  border-bottom: 0;
+}
+.family-app .active-row {
+  background: #f7f3ea;
+}
+.family-app .text-button {
+  border: 0;
+  background: none;
+  padding: 0;
+  min-height: 24px;
+  font-size: 12px;
+  color: var(--ink);
+}
+.family-app .ledger {
+  margin-top: 16px;
+}
+.family-app details {
+  margin: 16px 0;
+}
+.family-app summary {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 0;
+}
+.family-app summary span {
+  font-size: 11px;
+  margin-left: 10px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.family-app .source-cell {
+  white-space: normal;
+  min-width: 180px;
+  text-align: left;
+}
+.family-app .editor > p,
+.family-app .prose > p {
+  color: var(--muted);
+  margin: 12px 0 24px;
+}
+.family-app .inline-fields {
+  display: flex;
+  gap: 20px;
+  margin: 24px 0;
+}
+.family-app .inline-fields label {
+  display: grid;
+  gap: 5px;
+  flex: 1;
+  max-width: 350px;
+}
+.family-app .edit-table {
+  white-space: normal;
+  min-width: 890px;
+}
+.family-app .edit-table td {
+  text-align: left;
+  vertical-align: top;
+}
+.family-app .edit-table td:first-child {
+  min-width: 165px;
+}
+.family-app .edit-table td:nth-child(2) {
+  min-width: 145px;
+}
+.family-app .edit-table td:nth-child(3) {
+  min-width: 170px;
+}
+.family-app .edit-table td:nth-child(4) {
+  min-width: 185px;
+}
+.family-app .edit-table td:nth-child(5) {
+  min-width: 180px;
+}
+.family-app .edit-table input,
+.family-app .edit-table select {
+  width: 100%;
+  padding: 7px;
+  margin: 3px 0;
+  font-size: 12px;
+}
+.family-app .row-id {
+  display: block;
+  max-width: 155px;
+  overflow-wrap: anywhere;
+}
+.family-app .row-actions {
+  margin: 12px 0;
+}
+.family-app textarea {
+  width: 100%;
+  font-family: monospace;
+  display: block;
+  margin: 14px 0;
+  resize: vertical;
+}
+.family-app .checkbox {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.family-app .checkbox input {
+  width: auto;
+}
+.family-app .prose {
+  max-width: 800px;
+  min-height: 450px;
+}
+.family-app .prose h3 {
+  margin: 28px 0 12px;
+}
+.family-app .prose li {
+  margin: 9px 0;
+}
+.family-app .snapshot {
+  padding: 20px;
+  background: #eef1eb;
+  margin-top: 18px;
+  border-radius: 6px;
+}
+.family-app .snapshot label {
+  margin: 15px 0;
+}
+.family-app .snapshot small {
+  width: 100%;
+  padding-left: 24px;
+}
+.family-app .ai-note {
+  padding: 22px;
+  background: #eef1eb;
+  border-left: 3px solid var(--gold);
+  margin-bottom: 22px;
+}
+.family-app .ai-note p {
+  margin-top: 6px;
+  color: var(--muted);
+}
+.family-app .message {
+  padding: 12px 16px;
+  background: #e9f1e8;
+  margin: 15px 0;
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}
+.family-app .message.error {
+  background: #f8e9e5;
+  color: var(--red);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.family-app .message button {
+  background: none;
+  border: 0;
+  padding: 0;
+  min-width: 30px;
+  min-height: 24px;
+}
+.family-app footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.family-app .mobile-br {
+  display: none;
+}
+body {
+  margin: 0;
+}
+@media (max-width: 800px) {
+  .family-app .heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .family-app .sample-picker {
+    max-width: 100%;
+    width: 100%;
+  }
+  .family-app .planbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .family-app .scenario {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .family-app .metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+  .family-app .metrics article {
+    padding: 8px 16px;
+  }
+  .family-app .metrics article:nth-child(2) {
+    border: 0;
+  }
+  .family-app .metrics article:last-child {
+    grid-column: 1 / -1;
+    padding: 20px 0 0;
+    margin-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+  .family-app .goal-strip {
+    flex-wrap: wrap;
+  }
+  .family-app .chart-panel {
+    padding: 18px;
+  }
+  .family-app .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .family-app .legend {
+    align-self: flex-end;
+  }
+}
+@media (max-width: 480px) {
+  .family-app main {
+    padding: 28px 16px 20px;
+  }
+  .family-app .topbar {
+    padding: 15px 16px;
+    height: auto;
+    gap: 15px;
+  }
+  .family-app .brand {
+    font-size: 18px;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+  .family-app .brand-mark {
+    height: 35px;
+    width: 35px;
+  }
+  .family-app .mode {
+    font-size: 10px;
+    max-width: 110px;
+  }
+  .family-app h1 {
+    font-size: 29px;
+  }
+  .family-app .mobile-br {
+    display: block;
+  }
+  .family-app .tabs {
+    gap: 22px;
+  }
+  .family-app .tabs button {
+    font-size: 12px;
+  }
+  .family-app .metrics strong {
+    font-size: 20px;
+    letter-spacing: -0.7px;
+  }
+  .family-app .metrics article {
+    padding: 4px 10px;
+  }
+  .family-app .metrics small {
+    font-size: 10px;
+  }
+  .family-app .goal-strip {
+    padding: 20px;
+  }
+  .family-app .scenario {
+    padding: 16px;
+  }
+  .family-app .scenario-buttons button {
+    font-size: 12px;
+    padding: 9px;
+  }
+  .family-app .inline-fields {
+    flex-direction: column;
+  }
+  .family-app footer {
+    flex-direction: column;
+  }
+  .family-app h2 {
+    font-size: 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .family-app * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.family-app .workspace {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+}

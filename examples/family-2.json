@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "currency": "CNY",
+  "name": "周家 · 企业与家庭分账",
+  "startMonth": "2026-10",
+  "dataMode": "synthetic",
+  "assets": [
+    {
+      "id": "cash",
+      "name": "家庭活期",
+      "amountCents": 12000000,
+      "owner": "household",
+      "kind": "cash",
+      "source": "合成家庭案例，非真实客户资料"
+    },
+    {
+      "id": "business",
+      "name": "公司运营资金",
+      "amountCents": 80000000,
+      "owner": "enterprise",
+      "kind": "cash",
+      "source": "合成家庭案例，非真实客户资料"
+    }
+  ],
+  "liabilities": [
+    {
+      "id": "loan",
+      "name": "新增家庭借款",
+      "amountCents": 0,
+      "owner": "household",
+      "source": "合成家庭案例，非真实客户资料"
+    }
+  ],
+  "recurring": [],
+  "events": [
+    {
+      "id": "dividend",
+      "name": "已确认到家庭的税后分红",
+      "date": "2026-10-05",
+      "kind": "dividend",
+      "amountCents": 3000000,
+      "owner": "household",
+      "confirmed": true,
+      "source": "合成家庭案例，非真实客户资料"
+    },
+    {
+      "id": "borrowing",
+      "name": "家庭借款到账",
+      "date": "2026-10-06",
+      "kind": "borrowing",
+      "amountCents": 20000000,
+      "owner": "household",
+      "liabilityId": "loan",
+      "confirmed": true,
+      "source": "合成家庭案例，非真实客户资料"
+    }
+  ],
+  "goals": [],
+  "repayments": []
+}

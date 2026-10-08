@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "currency": "CNY",
+  "name": "林家 · 六个月后的教育金",
+  "startMonth": "2026-10",
+  "dataMode": "synthetic",
+  "assets": [
+    {
+      "id": "cash",
+      "name": "活期与可用存款",
+      "amountCents": 12000000,
+      "owner": "household",
+      "kind": "cash",
+      "source": "合成家庭案例，非真实客户资料"
+    },
+    {
+      "id": "home",
+      "name": "自住房估值",
+      "amountCents": 300000000,
+      "owner": "household",
+      "kind": "property",
+      "source": "合成家庭案例，非真实客户资料"
+    }
+  ],
+  "liabilities": [
+    {
+      "id": "mortgage",
+      "name": "住房贷款",
+      "amountCents": 120000000,
+      "owner": "household",
+      "source": "合成家庭案例，非真实客户资料"
+    }
+  ],
+  "recurring": [
+    {
+      "id": "salary",
+      "name": "税后工资",
+      "kind": "salary",
+      "amountCents": 2500000,
+      "day": 1,
+      "owner": "household",
+      "source": "合成家庭案例，非真实客户资料"
+    },
+    {
+      "id": "spend",
+      "name": "家庭生活消费",
+      "kind": "consumption",
+      "amountCents": 1200000,
+      "day": 25,
+      "owner": "household",
+      "source": "合成家庭案例，非真实客户资料"
+    },
+    {
+      "id": "principal",
+      "name": "房贷本金",
+      "kind": "principal",
+      "amountCents": 400000,
+      "day": 28,
+      "liabilityId": "mortgage",
+      "owner": "household",
+      "source": "合成家庭案例，非真实客户资料"
+    },
+    {
+      "id": "interest",
+      "name": "房贷利息",
+      "kind": "interest",
+      "amountCents": 200000,
+      "day": 28,
+      "liabilityId": "mortgage",
+      "owner": "household",
+      "source": "合成家庭案例，非真实客户资料"
+    }
+  ],
+  "events": [],
+  "goals": [
+    {
+      "id": "education",
+      "name": "新学年教育费",
+      "date": "2027-03-31",
+      "amountCents": 15000000,
+      "source": "合成家庭案例，非真实客户资料"
+    }
+  ],
+  "repayments": []
+}
