@@ -49,8 +49,8 @@ function EditableTextField({
       type={type}
       value={draft}
       onChange={(e) => setDraft(e.target.value)}
-      onBlur={() => {
-        if (!onCommit(draft)) setDraft(value);
+      onBlur={(event) => {
+        if (!onCommit(event.currentTarget.value)) setDraft(value);
       }}
       onKeyDown={(e) => {
         if (e.key === 'Enter') e.currentTarget.blur();
