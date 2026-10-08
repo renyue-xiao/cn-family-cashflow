@@ -1,7 +1,9 @@
 # 家有余量 · 家庭现金流与目标规划
 
 项目主页：[renyue-xiao/cn-family-cashflow](https://github.com/renyue-xiao/cn-family-cashflow)。
-把家庭资产负债、月度收支和目标付款日放在同一份24个月现金账。第一版提供独立 React 演示和 Wealthfolio Addon，共用计算核心与界面。所有内置家庭均为合成案例。
+
+**[在线使用家有余量](https://0f4c81.top/finance/cashflow/)** · 手机和电脑均可使用。数据在当前浏览器本地计算与保存，本站不接收家庭明细；换设备请用 JSON 导出/导入。
+把家庭资产负债、月度收支和目标付款日放在同一份24个月现金账。第一版提供独立 React 网页工具和 Wealthfolio Addon，共用计算核心与界面。所有内置家庭均为合成案例。
 
 ## 图形化规划
 
@@ -27,7 +29,7 @@ npm run preview
 # http://127.0.0.1:4173
 ```
 
-构建分别产出 `dist/` 独立演示（可放任意静态服务器，相对 base）；`addon/dist/addon.js` 与 CSS 插件文件；`cn-family-cashflow-addon.zip` 包含根目录 manifest、dist、说明及许可，无 node_modules。
+构建分别产出 `dist/` 独立网页（可放任意静态服务器，相对 base）；`addon/dist/addon.js` 与 CSS 插件文件；`cn-family-cashflow-addon.zip` 包含根目录 manifest、dist、说明及许可，无 node_modules。
 
 本版不调用模型。解释材料导出当前输入、来源、基准/情景确定性结果及提示词，由用户检查后自行交给模型。
 
@@ -37,9 +39,9 @@ npm run preview
 
 真实 `enable(ctx)` / `ctx.router.add` 入口；读取候选调用 SDK 账户、估值、独立资产 API。必须逐项勾选家庭资料，应用后替换资产/负债，并清空案例收支、目标和还款。只支持 CNY，不自动换汇；缺失/不完整估值显示原因。宿主估值不能证明公司归属或账户是否冻结，现金候选仍须人工确认。
 
-保存：独立演示为浏览器 localStorage，插件为 scoped 宿主 storage（同步由宿主设置决定）。插件导出真实调用 `files.openSaveDialog`，区分成功、取消与失败。导入使用 DOM File API 本地解析，不直接访问宿主数据库。
+保存：独立网页为浏览器 localStorage，插件为 scoped 宿主 storage（同步由宿主设置决定）。插件导出真实调用 `files.openSaveDialog`，区分成功、取消与失败。导入使用 DOM File API 本地解析，不直接访问宿主数据库。
 
-已实际运行：领域/导入/适配器单元测试，typecheck，独立与 addon 构建。适配器测试用真实函数加 API 返回桩。**尚未验证真实 Wealthfolio 安装、权限提示、存储、保存对话框与热加载**；未运行 Rust 宿主。独立演示标明本地保存，读取宿主返回未连接说明。
+已实际运行：领域/导入/适配器单元测试，typecheck，独立与 addon 构建。适配器测试用真实函数加 API 返回桩。**尚未验证真实 Wealthfolio 安装、权限提示、存储、保存对话框与热加载**；未运行 Rust 宿主。独立网页标明本地保存，读取宿主返回未连接说明。
 
 ## 使用步骤
 
