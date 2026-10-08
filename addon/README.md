@@ -71,3 +71,7 @@ date,loan_id,principal_yuan,interest_yuan,source
 入口：`src/domain.ts` 计算/校验；`src/import.ts` JSON/CSV；`src/adapters.ts` 两种适配器；`src/addon.tsx` 插件；`tests/` 不变量及 API 桩测试。
 
 原创代码 MIT；SDK 类型为上游独立 MIT 包，保留版权。宿主主应用 AGPL 与 SDK MIT 边界见 [UPSTREAM.md](UPSTREAM.md)。
+
+## 开发与贡献
+
+格式、TypeScript/React 静态规范、提交前检查和 GitHub PR 流程见 [CONTRIBUTING.md](CONTRIBUTING.md)。CI 在 PR 与 `main` 推送时运行；本地质量快照见 [qc-report.md](qc-report.md)，不代替远端 CI 或真实宿主验收。

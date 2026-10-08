@@ -1,7 +1,8 @@
 import { copyFile, readFile, mkdir } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 await mkdir('addon', { recursive: true });
-for (const name of ['README.md', 'LICENSE', 'UPSTREAM.md']) await copyFile(name, 'addon/' + name);
+for (const name of ['README.md', 'LICENSE', 'UPSTREAM.md', 'CONTRIBUTING.md', 'qc-report.md'])
+  await copyFile(name, 'addon/' + name);
 await mkdir('addon/licenses', { recursive: true });
 await copyFile(
   'vendor/wealthfolio-addon-sdk/LICENSE',
