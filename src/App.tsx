@@ -11,11 +11,12 @@ import { sample, samples } from './samples';
 import type { Adapter, Snapshot } from './adapters';
 import { parsePlanJSON, importRepayments, repaymentsCSV, MAX_BYTES } from './import';
 import { evidence } from './evidence';
+import { Timeline, AssetComposition } from './Timeline';
+import { resolveTimelineSelection, type TimelineSelection } from './visualization';
 const money = (n: number) =>
   new Intl.NumberFormat('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(
     n / 100,
   );
-const short = (n: number) => `${(n / 1000000).toFixed(1)}万`;
 type Collection = 'assets' | 'liabilities' | 'recurring' | 'events' | 'goals' | 'repayments';
 type RowField<T> = T extends unknown ? keyof T : never;
 type EditableField = RowField<Plan[Collection][number]>;
@@ -98,7 +99,7 @@ export function App({ adapter }: { adapter: Adapter }) {
     [snapshot, setSnapshot] = useState<Snapshot | null>(null),
     [selected, setSelected] = useState<string[]>([]),
     [json, setJson] = useState(''),
-    [month, setMonth] = useState(5);
+    [selection, setSelection] = useState<TimelineSelection | null>(null);
   const fileRef = useRef<HTMLInputElement>(null),
     csvRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -124,6 +125,9 @@ export function App({ adapter }: { adapter: Adapter }) {
   }, [adapter]);
   const base = useMemo(() => forecast(plan), [plan]),
     result = useMemo(() => forecast(plan, { salaryPauseMonths: pause }), [plan, pause]);
+  const { monthIndex: month, goalId } = resolveTimelineSelection(plan, selection);
+  const chooseMonth = (index: number) =>
+    setSelection({ kind: 'month', month: result.months[index].month });
   function commit(next: unknown): boolean {
     try {
       const valid = validatePlan(next);
@@ -174,10 +178,12 @@ export function App({ adapter }: { adapter: Adapter }) {
       if (file.size > MAX_BYTES) throw new Error('文件超过200KB，当前计划未变更');
       const text = await file.text();
       const next = csv ? importRepayments(plan, text) : parsePlanJSON(text);
-      if (commit(next))
+      if (commit(next)) {
+        setSelection(null);
         setNotice(
           csv ? '还款表已替换；本金与利息分列。' : 'JSON校验通过，已载入；点击保存后持久化。',
         );
+      }
     });
   }
   function addRow(key: Collection) {
@@ -220,20 +226,6 @@ export function App({ adapter }: { adapter: Adapter }) {
     });
   }
 
-  const min = Math.min(
-    0,
-    ...base.months.map((m) => m.closingCents),
-    ...result.months.map((m) => m.closingCents),
-  );
-  const max = Math.max(
-    base.initialCashCents,
-    ...base.months.map((m) => m.closingCents),
-    ...result.months.map((m) => m.closingCents),
-    100,
-  );
-  const y = (v: number) => 174 - ((v - min) / (max - min)) * 146;
-  const points = (ms: typeof result.months) =>
-    ms.map((m, i) => `${45 + i * 28.7},${y(m.closingCents)}`).join(' ');
   if (loading)
     return (
       <div className="family-app">
@@ -254,7 +246,7 @@ export function App({ adapter }: { adapter: Adapter }) {
             </span>
           </a>
           <span className="mode">
-            {adapter.mode === 'demo' ? '独立演示 · 本地保存' : 'Wealthfolio 插件 · 真实宿主接口'}
+            {adapter.mode === 'demo' ? '网页工具 · 本地保存' : 'Wealthfolio 插件 · 真实宿主接口'}
           </span>
         </header>
         <main id="main">
@@ -282,6 +274,7 @@ export function App({ adapter }: { adapter: Adapter }) {
                     setNotice('已载入合成样例；仅在点击保存时覆盖存储。');
                     setSnapshot(null);
                     setPause(0);
+                    setSelection(null);
                   }
                 }}
               >
@@ -295,6 +288,12 @@ export function App({ adapter }: { adapter: Adapter }) {
               <small>切换替换当前未保存编辑，可先导出备份。</small>
             </div>
           </div>
+          {adapter.mode === 'demo' && (
+            <p className="local-data-note">
+              数据在当前浏览器本地计算和保存，不会上传到本站。不同设备或浏览器之间不会自动同步；清理浏览器数据前，请导出
+              JSON 备份。
+            </p>
+          )}
           <div className="planbar">
             <div>
               <strong>{plan.name}</strong>
@@ -438,89 +437,17 @@ export function App({ adapter }: { adapter: Adapter }) {
                   </small>
                 </article>
               </div>
-              <section className="chart-panel">
-                <div className="section-heading">
-                  <div>
-                    <p className="eyebrow">现金的时间线</p>
-                    <h2>让目标与每月结余对上时间</h2>
-                  </div>
-                  <div className="legend">
-                    <span className="dot baseline" />
-                    基准
-                    <span className="dot stress" />
-                    当前情景
-                  </div>
-                </div>
-                <svg
-                  viewBox="0 0 740 205"
-                  role="img"
-                  aria-label="24个月月末可用现金，具体金额见下方明细表"
-                >
-                  <line
-                    x1="45"
-                    x2="720"
-                    y1={y(0)}
-                    y2={y(0)}
-                    stroke="#c8cec9"
-                    strokeDasharray="4 5"
-                  />
-                  <text x="3" y="24">
-                    {short(max)}
-                  </text>
-                  <text x="3" y="175">
-                    {short(min)}
-                  </text>
-                  <polyline
-                    points={points(base.months)}
-                    fill="none"
-                    stroke="#a3b4b8"
-                    strokeWidth="3"
-                  />
-                  <polyline
-                    points={points(result.months)}
-                    fill="none"
-                    stroke="#b48343"
-                    strokeWidth="3"
-                  />
-                  {[0, 5, 11, 17, 23].map((i) => (
-                    <g key={i}>
-                      <circle
-                        cx={45 + i * 28.7}
-                        cy={y(result.months[i].closingCents)}
-                        r="4"
-                        fill="#b48343"
-                      />
-                      <text x={45 + i * 28.7} y="199" textAnchor="middle">
-                        {result.months[i].month}
-                      </text>
-                    </g>
-                  ))}
-                </svg>
-                <p className="caption">
-                  曲线显示月末余额；付款日缺口见月内最低余额。负数是尚未筹措的缺口，不自动视为借款。
-                </p>
-              </section>
-              <div className="goal-strip">
-                <div>
-                  <span className="eyebrow">最近目标</span>
-                  <h3>
-                    {[...plan.goals].sort((a, b) => a.date.localeCompare(b.date))[0]?.name ??
-                      '当前尚未设置目标'}
-                  </h3>
-                  <p>
-                    {[...plan.goals].sort((a, b) => a.date.localeCompare(b.date))[0]?.date ??
-                      '到明细页添加付款日与金额'}
-                  </p>
-                </div>
-                <div>
-                  <span>第 6 个月月末 / {result.months[5].month}</span>
-                  <strong className={result.months[5].closingCents < 0 ? 'red' : ''}>
-                    ¥ {money(result.months[5].closingCents)}
-                  </strong>
-                  <small>基准为 ¥ {money(base.months[5].closingCents)}</small>
-                </div>
-                <button onClick={() => setTab('edit')}>调整目标与收支 →</button>
-              </div>
+              <Timeline
+                plan={plan}
+                baseline={base}
+                result={result}
+                monthIndex={month}
+                goalId={goalId}
+                onMonth={chooseMonth}
+                onGoal={(id) => setSelection({ kind: 'goal', id })}
+                onEdit={() => setTab('edit')}
+              />
+              <AssetComposition plan={plan} />
               <section>
                 <div className="section-heading">
                   <div>
@@ -553,7 +480,7 @@ export function App({ adapter }: { adapter: Adapter }) {
                       {result.months.map((m, i) => (
                         <tr key={m.month} className={month === i ? 'active-row' : ''}>
                           <th>
-                            <button className="text-button" onClick={() => setMonth(i)}>
+                            <button className="text-button" onClick={() => chooseMonth(i)}>
                               {m.month}
                             </button>
                           </th>
@@ -907,7 +834,7 @@ export function App({ adapter }: { adapter: Adapter }) {
               <h3>读取 Wealthfolio 资料</h3>
               <p>
                 {adapter.mode === 'demo'
-                  ? '当前为独立本地演示，未连接宿主。安装插件后可通过 SDK 只读账户、估值和独立资产。'
+                  ? '当前为独立网页工具，未连接宿主。安装插件后可通过 SDK 只读账户、估值和独立资产。'
                   : '当前使用宿主 API。点击读取后逐项选择家庭资料，应用时替换当前资产/负债，并清空原收支和目标以避免案例混入。'}
               </p>
               <button
