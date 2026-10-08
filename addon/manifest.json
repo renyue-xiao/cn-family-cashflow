@@ -1,11 +1,50 @@
 {
- "id":"cn-family-cashflow","name":"家有余量","version":"0.1.0","description":"家庭现金流、贷款本金利息与目标付款日规划","author":"renyue-xiao","main":"dist/addon.js","sdkVersion":"3.9.0","minWealthfolioVersion":"3.9.0","enabled":true,
- "contributes":{"routes":[{"id":"cn-family-cashflow"}],"links":{"sidebar":[{"id":"cn-family-cashflow","route":"cn-family-cashflow","label":"家有余量","icon":"squares-four","order":100}]}},
- "hostDependencies":{"react":"^19.2.0"},
- "permissions":[
- {"category":"accounts","functions":[{"name":"getAll","isDeclared":true,"isDetected":false}],"purpose":"只读账户名称与人民币币种，供人工选择家庭资料"},
- {"category":"portfolio","functions":[{"name":"getLatestValuations","isDeclared":true,"isDetected":false}],"purpose":"只读现金和投资估值并分别展示"},
- {"category":"alternative-assets","functions":[{"name":"getAll","isDeclared":true,"isDetected":false}],"purpose":"只读房产与负债候选，需逐项确认归属"},
- {"category":"files","functions":[{"name":"openSaveDialog","isDeclared":true,"isDetected":false}],"purpose":"按用户操作导出计划和解释材料"}
- ],"keywords":["cashflow","family","CNY"],"license":"MIT"
+  "id": "cn-family-cashflow",
+  "name": "家有余量",
+  "version": "0.1.0",
+  "description": "家庭现金流、贷款本金利息与目标付款日规划",
+  "author": "renyue-xiao",
+  "main": "dist/addon.js",
+  "sdkVersion": "3.9.0",
+  "minWealthfolioVersion": "3.9.0",
+  "enabled": true,
+  "contributes": {
+    "routes": [{ "id": "cn-family-cashflow" }],
+    "links": {
+      "sidebar": [
+        {
+          "id": "cn-family-cashflow",
+          "route": "cn-family-cashflow",
+          "label": "家有余量",
+          "icon": "squares-four",
+          "order": 100
+        }
+      ]
+    }
+  },
+  "hostDependencies": { "react": "^19.2.0" },
+  "permissions": [
+    {
+      "category": "accounts",
+      "functions": [{ "name": "getAll", "isDeclared": true, "isDetected": false }],
+      "purpose": "只读账户名称与人民币币种，供人工选择家庭资料"
+    },
+    {
+      "category": "portfolio",
+      "functions": [{ "name": "getLatestValuations", "isDeclared": true, "isDetected": false }],
+      "purpose": "只读现金和投资估值并分别展示"
+    },
+    {
+      "category": "alternative-assets",
+      "functions": [{ "name": "getAll", "isDeclared": true, "isDetected": false }],
+      "purpose": "只读房产与负债候选，需逐项确认归属"
+    },
+    {
+      "category": "files",
+      "functions": [{ "name": "openSaveDialog", "isDeclared": true, "isDetected": false }],
+      "purpose": "按用户操作导出计划和解释材料"
+    }
+  ],
+  "keywords": ["cashflow", "family", "CNY"],
+  "license": "MIT"
 }

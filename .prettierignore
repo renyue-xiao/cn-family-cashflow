@@ -1,0 +1,10 @@
+node_modules/
+vendor/
+dist/
+addon/dist/
+addon/README.md
+addon/UPSTREAM.md
+addon/LICENSE
+addon/licenses/
+package-lock.json
+*.zip

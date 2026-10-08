@@ -1,0 +1,21 @@
+{
+  "scope": "changed-only",
+  "baseCommit": "1645f9e",
+  "date": "2026-10-08",
+  "verdict": "PASS",
+  "environment": { "node": "26.3.1", "githubCI": "not-yet-run" },
+  "tests": { "passed": 12, "failed": 0, "skipped": 0 },
+  "lint": { "errors": 0, "warnings": 0 },
+  "typecheck": "passed",
+  "format": "passed",
+  "builds": { "standalone": "passed", "addon": "passed" },
+  "addonEntry": "built-module-context-stub-passed",
+  "liveWealthfolio": "not-run",
+  "browserThisChange": "not-run",
+  "coverage": {
+    "scope": "loaded adapters/domain/import/samples only; excludes UI",
+    "line": 95.26,
+    "branch": 80.98,
+    "functions": 96.72
+  }
+}
